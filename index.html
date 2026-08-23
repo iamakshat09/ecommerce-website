@@ -3,464 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopSphere — Discover Products You'll Love</title>
-<meta name="description" content="ShopSphere is a modern online shopping destination for electronics, fashion, home goods and more.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+<title>ShopSphere</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ===================== HEADER / NAVBAR ===================== -->
-<header class="site-header" id="siteHeader">
-  <div class="header-top">
-    <div class="container header-top-inner">
-      <p class="header-top-msg"><i class="fa-solid fa-truck-fast"></i> Free shipping on orders over ₹1,999 — every day.</p>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <h1 class="logo">Shop<span>Sphere</span></h1>
+      <input type="text" id="searchInput" placeholder="Search products...">
+      <button id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
     </div>
-  </div>
+  </header>
 
-  <div class="navbar">
-    <div class="container navbar-inner">
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <span></span><span></span><span></span>
-      </button>
-
-      <a href="#home" class="logo">
-        <span class="logo-mark">S</span>
-        <span class="logo-text">Shop<em>Sphere</em></span>
-      </a>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#home" class="nav-link active-link">Home</a>
-        <a href="#products" class="nav-link">Products</a>
-        <a href="#categories" class="nav-link">Categories</a>
-        <a href="#deals" class="nav-link">Deals</a>
-        <a href="#about" class="nav-link">About</a>
-        <div class="nav-search-mobile">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="searchInputMobile" placeholder="Search products, categories…" aria-label="Search products">
-        </div>
-      </nav>
-
-      <div class="navbar-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="Search products, categories…" aria-label="Search products">
-        <span class="search-count" id="searchCount" hidden></span>
-      </div>
-
-      <div class="navbar-actions">
-        <button class="icon-btn" id="wishlistBtn" aria-label="Open wishlist">
-          <i class="fa-regular fa-heart"></i>
-          <span class="badge" id="wishlistCount">0</span>
-        </button>
-        <button class="icon-btn" id="cartBtn" aria-label="Open cart">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span class="badge" id="cartCount">0</span>
-        </button>
-        <button class="icon-btn" id="accountBtn" aria-label="Account">
-          <i class="fa-regular fa-user"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="nav-overlay" id="navOverlay"></div>
-</header>
-
-<main id="home">
-
-  <!-- ===================== HERO ===================== -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <span class="eyebrow">New season, new favorites</span>
-        <h1 class="hero-title">Discover Products <em>You'll Love</em></h1>
-        <p class="hero-desc">Curated electronics, fashion and home essentials — handpicked for quality, priced for real life. Join thousands of happy shoppers at ShopSphere.</p>
-        <div class="hero-actions">
-          <a href="#products" class="btn btn-primary" id="shopNowBtn">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="#deals" class="btn btn-ghost">Explore Deals</a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><strong>120K+</strong><span>Happy customers</span></div>
-          <div class="hero-stat"><strong>4.8/5</strong><span>Average rating</span></div>
-          <div class="hero-stat"><strong>24/7</strong><span>Support</span></div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-card hero-card-main">
-          <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80" alt="Wireless headphones on display">
-        </div>
-        <div class="hero-card hero-card-float hero-card-1">
-          <i class="fa-solid fa-bolt"></i>
-          <div><strong>Flash Sale</strong><span>Up to 40% off</span></div>
-        </div>
-        <div class="hero-card hero-card-float hero-card-2">
-          <i class="fa-solid fa-truck-fast"></i>
-          <div><strong>Free Delivery</strong><span>On orders ₹1,999+</span></div>
-        </div>
-      </div>
-    </div>
+    <h2>Discover Products You'll Love</h2>
+    <p>Simple, affordable and quality products for everyone.</p>
   </section>
 
-  <!-- ===================== CATEGORIES ===================== -->
-  <section class="categories" id="categories">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Browse</span>
-        <h2>Shop by Category</h2>
-        <p>Find exactly what you're looking for, faster.</p>
-      </div>
-      <div class="category-grid" id="categoryGrid"></div>
-    </div>
+  <!-- Category Filters -->
+  <section class="categories">
+    <button class="filter-btn active" data-category="All">All</button>
+    <button class="filter-btn" data-category="Electronics">Electronics</button>
+    <button class="filter-btn" data-category="Fashion">Fashion</button>
+    <button class="filter-btn" data-category="Home">Home</button>
   </section>
 
-  <!-- ===================== PRODUCTS ===================== -->
-  <section class="products" id="products">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Catalog</span>
-        <h2>Our Products</h2>
-        <p>Hand-picked items, updated daily.</p>
-      </div>
-
-      <div class="toolbar">
-        <div class="filter-chips" id="filterChips">
-          <button class="chip active-chip" data-filter="All">All</button>
-          <button class="chip" data-filter="Electronics">Electronics</button>
-          <button class="chip" data-filter="Fashion">Fashion</button>
-          <button class="chip" data-filter="Home">Home &amp; Living</button>
-          <button class="chip" data-filter="Accessories">Accessories</button>
-          <button class="chip" data-filter="Sports">Sports</button>
-          <button class="chip" data-filter="Beauty">Beauty</button>
-        </div>
-
-        <div class="toolbar-controls">
-          <div class="control-group">
-            <label for="priceRange">Max price <span id="priceRangeVal">₹15,000</span></label>
-            <input type="range" id="priceRange" min="500" max="15000" step="500" value="15000">
-          </div>
-          <div class="control-group">
-            <label for="ratingFilter">Min rating</label>
-            <select id="ratingFilter">
-              <option value="0">Any rating</option>
-              <option value="3">3★ &amp; up</option>
-              <option value="4">4★ &amp; up</option>
-              <option value="4.5">4.5★ &amp; up</option>
-            </select>
-          </div>
-          <div class="control-group">
-            <label for="sortSelect">Sort by</label>
-            <select id="sortSelect">
-              <option value="default">Default</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="rating-desc">Rating: High to Low</option>
-              <option value="name-asc">Name: A-Z</option>
-              <option value="name-desc">Name: Z-A</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <p class="results-meta" id="resultsMeta"></p>
-
-      <div class="product-grid" id="productGrid"></div>
-      <p class="empty-state" id="noProducts" hidden><i class="fa-regular fa-face-frown-open"></i> No products found. Try adjusting your search or filters.</p>
-    </div>
+  <!-- Products -->
+  <section class="products" id="productContainer">
+    <!-- Product cards are added here by JavaScript -->
   </section>
 
-  <!-- ===================== DEALS ===================== -->
-  <section class="deals" id="deals">
-    <div class="container">
-      <div class="deals-head">
-        <div>
-          <span class="eyebrow eyebrow-light">Limited time</span>
-          <h2>Flash Sale</h2>
-          <p>Grab these deals before the clock runs out.</p>
-        </div>
-        <div class="countdown" id="countdown" role="timer" aria-live="polite">
-          <span class="countdown-label">Flash Sale Ends In</span>
-          <div class="countdown-digits">
-            <div class="digit-box"><span id="cdDays">02</span><small>Days</small></div>
-            <span class="digit-sep">:</span>
-            <div class="digit-box"><span id="cdHours">14</span><small>Hours</small></div>
-            <span class="digit-sep">:</span>
-            <div class="digit-box"><span id="cdMinutes">35</span><small>Mins</small></div>
-            <span class="digit-sep">:</span>
-            <div class="digit-box"><span id="cdSeconds">20</span><small>Secs</small></div>
-          </div>
-        </div>
-      </div>
-      <div class="deal-grid" id="dealGrid"></div>
+  <!-- Cart Sidebar -->
+  <div id="cartOverlay"></div>
+  <aside id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCartBtn">✕</button>
     </div>
-  </section>
-
-  <!-- ===================== ABOUT ===================== -->
-  <section class="about" id="about">
-    <div class="container about-inner">
-      <div class="about-copy">
-        <span class="eyebrow">About ShopSphere</span>
-        <h2>Shopping, made effortless.</h2>
-        <p>ShopSphere started with one idea: online shopping should feel as good as unboxing your favorite package. We curate quality products across electronics, fashion, home and beyond — then back every order with fast delivery and easy returns.</p>
-        <div class="about-badges">
-          <div class="about-badge"><i class="fa-solid fa-shield-halved"></i><span>Secure checkout</span></div>
-          <div class="about-badge"><i class="fa-solid fa-rotate-left"></i><span>Easy 7-day returns</span></div>
-          <div class="about-badge"><i class="fa-solid fa-star"></i><span>Verified reviews</span></div>
-        </div>
-      </div>
+    <div id="cartItems">
+      <!-- Cart items are added here by JavaScript -->
     </div>
-  </section>
-
-  <!-- ===================== NEWSLETTER ===================== -->
-  <section class="newsletter">
-    <div class="container newsletter-inner">
-      <div>
-        <h2>Get 10% off your first order</h2>
-        <p>Subscribe for restock alerts, new arrivals and sale previews.</p>
-      </div>
-      <form class="newsletter-form" id="newsletterForm" novalidate>
-        <label for="newsletterEmail" class="sr-only">Email address</label>
-        <input type="email" id="newsletterEmail" placeholder="you@example.com" required>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-      <p class="newsletter-msg" id="newsletterMsg" role="status" aria-live="polite"></p>
+    <div class="cart-total">
+      <p>Total: ₹<span id="cartTotal">0</span></p>
+      <button id="clearCartBtn">Clear Cart</button>
     </div>
-  </section>
+  </aside>
 
-</main>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 ShopSphere. Built as a demo project.</p>
+  </footer>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-col footer-brand">
-      <a href="#home" class="logo">
-        <span class="logo-mark">S</span>
-        <span class="logo-text">Shop<em>Sphere</em></span>
-      </a>
-      <p>Your everyday destination for electronics, fashion, home and lifestyle essentials — curated and delivered with care.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      </div>
-    </div>
-
-    <div class="footer-col">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#deals">Deals</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>Customer Service</h3>
-      <ul>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Shipping</a></li>
-        <li><a href="#">Returns</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms &amp; Conditions</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col" id="contact">
-      <h3>Newsletter</h3>
-      <p>Sign up and be the first to know about new arrivals and sales.</p>
-      <form class="footer-newsletter" id="footerNewsletterForm" novalidate>
-        <label for="footerEmail" class="sr-only">Email address</label>
-        <input type="email" id="footerEmail" placeholder="you@example.com" required>
-        <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
-      </form>
-      <p class="newsletter-msg" id="footerNewsletterMsg" role="status" aria-live="polite"></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; <span id="year"></span> ShopSphere. All rights reserved.</p>
-  </div>
-</footer>
-
-<!-- ===================== CART DRAWER ===================== -->
-<div class="drawer-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
-  <div class="drawer-header">
-    <h2><i class="fa-solid fa-bag-shopping"></i> Shopping Cart</h2>
-    <button class="icon-btn" id="closeCartBtn" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-
-  <div class="cart-body" id="cartBody">
-    <!-- populated by JS -->
-  </div>
-
-  <div class="cart-footer" id="cartFooter">
-    <div class="cart-summary-row">
-      <span>Subtotal</span>
-      <span id="cartSubtotal">₹0</span>
-    </div>
-    <div class="cart-summary-row cart-discount-row">
-      <span>Discount</span>
-      <span id="cartDiscount">−₹0</span>
-    </div>
-    <div class="cart-summary-row cart-total-row">
-      <span>Total</span>
-      <span id="cartTotal">₹0</span>
-    </div>
-    <div class="cart-actions">
-      <button class="btn btn-outline" id="clearCartBtn">Clear Cart</button>
-      <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
-    </div>
-  </div>
-</aside>
-
-<!-- ===================== WISHLIST DRAWER ===================== -->
-<div class="drawer-overlay" id="wishlistOverlay"></div>
-<aside class="cart-drawer" id="wishlistDrawer" aria-hidden="true" aria-label="Wishlist">
-  <div class="drawer-header">
-    <h2><i class="fa-solid fa-heart"></i> Wishlist</h2>
-    <button class="icon-btn" id="closeWishlistBtn" aria-label="Close wishlist"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-  <div class="cart-body" id="wishlistBody">
-    <!-- populated by JS -->
-  </div>
-</aside>
-
-<!-- ===================== QUICK VIEW MODAL ===================== -->
-<div class="modal-overlay" id="quickViewOverlay">
-  <div class="modal quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="qvName">
-    <button class="modal-close" id="closeQuickViewBtn" aria-label="Close quick view"><i class="fa-solid fa-xmark"></i></button>
-    <div class="quick-view-grid">
-      <div class="qv-image">
-        <img id="qvImage" src="" alt="">
-        <span class="qv-discount" id="qvDiscountBadge"></span>
-      </div>
-      <div class="qv-details">
-        <span class="qv-category" id="qvCategory"></span>
-        <h2 id="qvName"></h2>
-        <div class="qv-rating" id="qvRating"></div>
-        <p class="qv-desc" id="qvDesc"></p>
-        <div class="qv-price-row">
-          <span class="qv-price" id="qvPrice"></span>
-          <span class="qv-old-price" id="qvOldPrice"></span>
-        </div>
-        <div class="qv-qty">
-          <span>Quantity</span>
-          <div class="qty-stepper">
-            <button id="qvQtyMinus" aria-label="Decrease quantity">−</button>
-            <span id="qvQtyValue">1</span>
-            <button id="qvQtyPlus" aria-label="Increase quantity">+</button>
-          </div>
-        </div>
-        <div class="qv-actions">
-          <button class="btn btn-primary" id="qvAddToCartBtn">Add to Cart</button>
-          <button class="btn-icon-outline" id="qvWishlistBtn" aria-label="Toggle wishlist"><i class="fa-regular fa-heart"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== CHECKOUT MODAL ===================== -->
-<div class="modal-overlay" id="checkoutOverlay">
-  <div class="modal checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
-    <button class="modal-close" id="closeCheckoutBtn" aria-label="Close checkout"><i class="fa-solid fa-xmark"></i></button>
-
-    <div id="checkoutFormWrap">
-      <h2 id="checkoutTitle">Checkout</h2>
-      <p class="checkout-sub">Almost there — fill in your details to place the order.</p>
-      <form id="checkoutForm" novalidate>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" required>
-            <span class="field-error" id="err-fullName"></span>
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <span class="field-error" id="err-email"></span>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required>
-            <span class="field-error" id="err-phone"></span>
-          </div>
-          <div class="form-field">
-            <label for="pincode">Pincode</label>
-            <input type="text" id="pincode" name="pincode" required>
-            <span class="field-error" id="err-pincode"></span>
-          </div>
-        </div>
-        <div class="form-field">
-          <label for="address">Address</label>
-          <input type="text" id="address" name="address" required>
-          <span class="field-error" id="err-address"></span>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" required>
-            <span class="field-error" id="err-city"></span>
-          </div>
-          <div class="form-field">
-            <label for="state">State</label>
-            <input type="text" id="state" name="state" required>
-            <span class="field-error" id="err-state"></span>
-          </div>
-        </div>
-
-        <fieldset class="form-field">
-          <legend>Payment Method</legend>
-          <div class="payment-options">
-            <label class="payment-option">
-              <input type="radio" name="payment" value="COD" checked>
-              <span><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery</span>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="payment" value="Card">
-              <span><i class="fa-regular fa-credit-card"></i> Credit / Debit Card</span>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="payment" value="UPI">
-              <span><i class="fa-solid fa-mobile-screen-button"></i> UPI</span>
-            </label>
-          </div>
-        </fieldset>
-
-        <div class="checkout-total-row">
-          <span>Order Total</span>
-          <strong id="checkoutTotal">₹0</strong>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block">Place Order</button>
-      </form>
-    </div>
-
-    <div id="checkoutSuccessWrap" hidden>
-      <div class="success-content">
-        <i class="fa-solid fa-circle-check success-icon"></i>
-        <h2>Order placed successfully!</h2>
-        <p>Your order ID is <strong id="orderIdDisplay"></strong>. A confirmation has been sent to your email.</p>
-        <button class="btn btn-primary" id="successCloseBtn">Continue Shopping</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===================== TOASTS ===================== -->
-<div class="toast-container" id="toastContainer" aria-live="polite"></div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
